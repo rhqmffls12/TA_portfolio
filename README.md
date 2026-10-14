@@ -28,3 +28,6 @@ Project video color is kept close to the source. The `.video-shade` overlay in `
 ## Portfolio disciplines
 
 Each entry in `projects.js` has a `discipline` field: `cinematic` for Cinematic Art & Production, or `technical` for Technical Direction. The opening selector and the tabs above the reel filter projects by this field. Set the field when adding a project so it appears in the intended portfolio.
+
+
+The full-screen discipline picker uses ssets/cinematic-art.png and ssets/technical-direction.png for its hover backgrounds.

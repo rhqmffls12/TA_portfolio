@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=disciplines-20261014" />
+    <link rel="stylesheet" href="./styles.css?v=discipline-hover-panels-20261014" />
     <script type="module" src="./app.js?v=disciplines-20261014"></script>
   </head>
   <body>
@@ -21,25 +21,29 @@
 
     <main id="top">
       <section class="intro" aria-label="포트폴리오 분야 선택">
-        <p class="eyebrow"><span>TECHNICAL ARTIST / SELECTED WORK</span><span>2021 — 2025</span></p>
-        <h1>Worlds made<br /><em>to be felt.</em></h1>
-        <p class="intro-note">시네마틱 아트와 제작, 기술 방향과 도구 개발.<br />두 가지 관점에서 작업을 살펴보세요.</p>
-        <div class="discipline-prompt"><span class="explore-line"></span> CHOOSE A DISCIPLINE <span>01 / 02</span></div>
         <div class="discipline-grid" aria-label="포트폴리오 분야">
-          <button class="discipline-option" type="button" data-select-discipline="cinematic" aria-pressed="false">
-            <span class="discipline-index">01 / 02</span>
+          <button class="discipline-option" type="button" data-select-discipline="cinematic" aria-pressed="false" style="--discipline-image:url('./assets/cinematic-art.png')">
+            <span class="discipline-index">01 / 02 <i>FILMMAKING</i></span>
             <span class="discipline-title">Cinematic Art<br />&amp; Production</span>
             <span class="discipline-tags">ENVIRONMENT · MATERIAL · RIG · RENDER</span>
+            <span class="discipline-description">시네마틱 환경부터 머티리얼, 라이팅, 최종 렌더까지<br />화면의 감정을 만드는 아트와 제작 작업</span>
             <span class="discipline-count" data-discipline-count="cinematic">02 PROJECTS</span>
-            <span class="discipline-arrow" aria-hidden="true">↗</span>
+            <span class="discipline-action">EXPLORE WORK <b aria-hidden="true">↗</b></span>
           </button>
-          <button class="discipline-option" type="button" data-select-discipline="technical" aria-pressed="false">
-            <span class="discipline-index">02 / 02</span>
+          <button class="discipline-option" type="button" data-select-discipline="technical" aria-pressed="false" style="--discipline-image:url('./assets/technical-direction.png')">
+            <span class="discipline-index">02 / 02 <i>TOOLS &amp; SYSTEMS</i></span>
             <span class="discipline-title">Technical<br />Direction</span>
             <span class="discipline-tags">PROCEDURAL · TOOLS · PIPELINE · AUTOMATION</span>
+            <span class="discipline-description">아티스트의 제작 과정을 확장하는<br />프로시저럴 워크플로와 파이프라인 개발</span>
             <span class="discipline-count" data-discipline-count="technical">01 PROJECT</span>
-            <span class="discipline-arrow" aria-hidden="true">↗</span>
+            <span class="discipline-action">EXPLORE WORK <b aria-hidden="true">↗</b></span>
           </button>
+        </div>
+        <div class="discipline-intro-copy">
+          <p class="eyebrow"><span>TECHNICAL ARTIST / SELECTED WORK</span><span>2021 — 2025</span></p>
+          <h1>Worlds made<br /><em>to be felt.</em></h1>
+          <p class="intro-note">두 가지 방향의 작업을 한 화면에서 살펴보세요.</p>
+          <div class="discipline-prompt"><span class="explore-line"></span> CHOOSE A DISCIPLINE</div>
         </div>
       </section>
 
