@@ -4,7 +4,7 @@ export const projects = [
   {
     number: "01",
     discipline: "cinematic",
-    title: "PUBG: DEDNET\nTRAILER",
+    title: "PUBG : Dednet\nTrailer",
     category: "CINEMATIC · TRAILER",
     year: "2026",
     role: "Environment Art · Rendering · FX · Technical Art",
@@ -20,7 +20,7 @@ export const projects = [
   {
     number: "02",
     discipline: "cinematic",
-    title: "ERANGEL SUBZERO\nLORE FILM",
+    title: "Erangel Subzero\nLore Film",
     category: "CINEMATIC · LORE FILM",
     year: "2025",
     role: "Environment Art · Rendering · FX · Technical Art",

@@ -103,15 +103,15 @@
 @media(max-width:700px){.project-year-row{gap:11px;margin-bottom:12px}.project-year{font-size:clamp(32px,9vw,44px)}.year-rule{width:24px}.project-heading .eyebrow{font-size:8px;letter-spacing:.06em}.tool-logos{gap:6px;margin-top:7px}.tool-logos img{width:25px;height:25px}}
 
 /* Playback controls and published project links */
-.auto-toggle{position:fixed;left:5.2vw;bottom:75px;display:flex;align-items:center;gap:9px;padding:9px 0;border:0;background:transparent;color:#ddd;cursor:pointer;font:9px "DM Mono",monospace;letter-spacing:.1em}
-.auto-icon{color:var(--accent);font-size:15px}
-.auto-toggle[aria-pressed="false"]{color:#aaa}
-.manual-play{position:absolute;z-index:2;left:50%;top:50%;display:none;place-items:center;width:70px;height:70px;padding:0;border:1px solid rgba(255,255,255,.76);border-radius:50%;background:rgba(10,11,12,.35);backdrop-filter:blur(4px);color:#fff;font-size:22px;cursor:pointer;transform:translate(-50%,-50%);transition:background .2s,opacity .2s}
-.manual-mode .manual-play{display:grid}
-.manual-mode.video-playing .manual-play{opacity:0;pointer-events:none}
-.manual-play:hover{background:rgba(213,188,145,.2)}
+.playback-controls{position:fixed;right:5.2vw;bottom:34px;display:flex;gap:8px;pointer-events:auto}
+.playback-button{display:grid;place-items:center;padding:0;font-size:11px;line-height:1}
+.playback-button[aria-pressed="true"]{border-color:var(--accent);background:rgba(213,188,145,.16);color:var(--accent)}
+.pause-button{font-size:14px;letter-spacing:-.12em}
+.stop-button{font-size:10px}
 .release-link{position:absolute;right:12vw;bottom:51px;display:inline-flex;align-items:center;gap:9px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.34);color:rgba(255,255,255,.82);font:9px "DM Mono",monospace;letter-spacing:.13em;transition:color .2s,border-color .2s}
 .release-link span{color:var(--accent);font-size:14px}
 .release-link:hover{color:#fff;border-color:var(--accent)}
-@media(max-width:700px){.auto-toggle{left:8vw;bottom:63px;gap:7px;font-size:8px}.auto-icon{font-size:14px}.manual-play{width:58px;height:58px;font-size:19px}.release-link{right:8vw;bottom:83px;font-size:8px}}
+@media(max-width:700px){.playback-controls{right:8vw;bottom:19px;gap:6px}.playback-button{width:34px;height:34px}.release-link{right:8vw;bottom:83px;font-size:8px}.project-heading h2{font-size:clamp(44px,10.8vw,72px)}}
+.project-heading h2{font-size:clamp(44px,6vw,86px)}
+@media(max-width:700px){.project-heading h2{font-size:clamp(42px,10.5vw,72px)}}
 

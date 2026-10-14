@@ -1,4 +1,4 @@
-import { projects } from "./projects.js?v=autoplay-release-memos-20261014";
+import { projects } from "./projects.js?v=transport-controls-20261014";
 
 const disciplines = ["cinematic", "technical"];
 const projectList = document.querySelector("#project-list");
@@ -9,14 +9,16 @@ const currentLabel = document.querySelector(".counter-current");
 const totalLabel = document.querySelector(".counter-total");
 const currentProgress = document.querySelector(".progress-fill");
 const soundButton = document.querySelector(".sound-toggle");
-const autoButton = document.querySelector(".auto-toggle");
+const playButton = document.querySelector(".play-button");
+const stopButton = document.querySelector(".stop-button");
+const pauseButton = document.querySelector(".pause-button");
 let selectedDiscipline = null;
 let selectedProjects = [];
 let cards = [];
 let videos = [];
 let activeIndex = 0;
 let soundOn = false;
-let autoPlay = true;
+let playbackMode = "play";
 let scrollLock = false;
 let observer = null;
 
@@ -37,7 +39,6 @@ function cardMarkup(project, index) {
       <video class="project-video" muted playsinline preload="metadata"${project.poster ? ` poster="${project.poster}"` : ""}>
         <source src="${project.video}" type="video/mp4" />
       </video>
-      <button class="manual-play" type="button" aria-label="Play project video" title="Play video">▶</button>
       <div class="video-shade"></div>
       <div class="project-meta">
         <div class="project-heading"><div class="project-year-row"><span class="project-year">${project.year}</span><span class="year-rule"></span><p class="eyebrow">${project.category}</p></div><h2>${project.title.replaceAll("\n", "<br />")}</h2></div>
@@ -64,7 +65,7 @@ function setActive(index) {
       video.pause();
       return;
     }
-    if (!autoPlay) {
+    if (playbackMode !== "play") {
       video.pause();
       return;
     }
@@ -80,10 +81,10 @@ function startVideo(index) {
   if (playback) playback.catch(() => cards[index].classList.add("video-error"));
 }
 
-function updateAutoButton() {
-  autoButton.setAttribute("aria-pressed", String(autoPlay));
-  autoButton.setAttribute("aria-label", autoPlay ? "Turn off automatic playback and next-project scrolling" : "Turn on automatic playback and next-project scrolling");
-  autoButton.querySelector(".auto-label").textContent = `AUTO PLAY + NEXT · ${autoPlay ? "ON" : "OFF"}`;
+function updatePlaybackButtons() {
+  playButton.setAttribute("aria-pressed", String(playbackMode === "play"));
+  pauseButton.setAttribute("aria-pressed", String(playbackMode === "pause"));
+  stopButton.setAttribute("aria-pressed", String(playbackMode === "stop"));
 }
 
 function moveTo(index) {
@@ -132,17 +133,10 @@ function selectDiscipline(discipline, shouldScroll = true) {
   }, { threshold: [0.55, 0.8] });
   cards.forEach((card) => observer.observe(card));
 
-  videos.forEach((video, index) => video.addEventListener("ended", () => {
-    if (autoPlay && index === activeIndex) moveTo(index + 1);
-  }));
   videos.forEach((video, index) => {
-    video.addEventListener("playing", () => cards[index].classList.add("video-playing"));
-    video.addEventListener("pause", () => cards[index].classList.remove("video-playing"));
-    cards[index].querySelector(".manual-play").addEventListener("click", () => {
-      if (index !== activeIndex) setActive(index);
-      startVideo(index);
+    video.addEventListener("ended", () => {
+      if (playbackMode === "play" && index === activeIndex) moveTo(index + 1);
     });
-    cards[index].classList.toggle("manual-mode", !autoPlay);
   });
 
   if (shouldScroll && cards[0]) {
@@ -154,22 +148,32 @@ updateCounts();
 document.querySelectorAll("[data-select-discipline]").forEach((button) => {
   button.addEventListener("click", () => selectDiscipline(button.dataset.selectDiscipline));
 });
-document.querySelector(".next").addEventListener("click", () => moveTo(activeIndex + 1));
-document.querySelector(".previous").addEventListener("click", () => moveTo(activeIndex - 1));
 soundButton.addEventListener("click", () => {
   soundOn = !soundOn;
   videos.forEach((video) => { video.muted = !soundOn; });
   soundButton.setAttribute("aria-pressed", String(soundOn));
   soundButton.querySelector(".sound-label").textContent = soundOn ? "SOUND ON" : "SOUND OFF";
 });
-autoButton.addEventListener("click", () => {
-  autoPlay = !autoPlay;
-  updateAutoButton();
-  cards.forEach((card) => card.classList.toggle("manual-mode", !autoPlay));
-  if (autoPlay) setActive(activeIndex);
-  else videos[activeIndex]?.pause();
+playButton.addEventListener("click", () => {
+  playbackMode = "play";
+  updatePlaybackButtons();
+  startVideo(activeIndex);
 });
-updateAutoButton();
+pauseButton.addEventListener("click", () => {
+  playbackMode = "pause";
+  videos[activeIndex]?.pause();
+  updatePlaybackButtons();
+});
+stopButton.addEventListener("click", () => {
+  playbackMode = "stop";
+  const video = videos[activeIndex];
+  if (video) {
+    video.pause();
+    if (video.readyState > 0) video.currentTime = 0;
+  }
+  updatePlaybackButtons();
+});
+updatePlaybackButtons();
 document.addEventListener("keydown", (event) => {
   if (!cards.length) return;
   if (event.key === "ArrowDown" || event.key === "PageDown") { event.preventDefault(); moveTo(activeIndex + 1); }
