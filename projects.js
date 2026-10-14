@@ -9,6 +9,10 @@ export const projects = [
     year: "2025",
     role: "Environment Art / Lighting / Compositing",
     tools: "UNREAL ENGINE 5 · HOUDINI · NUKE",
+    toolLogos: [
+      { name: "Unreal Engine", src: "./assets/tools/unreal-engine.png" },
+      { name: "Houdini", src: "./assets/tools/houdini.png" }
+    ],
     description: "잊혀진 세계의 마지막 빛을 설계한 시네마틱 환경 작업입니다. 안개와 라이팅, 룩디벨롭을 담당했습니다.",
     video: "./media/dednet.mp4",
     poster: ""
@@ -21,6 +25,10 @@ export const projects = [
     year: "2024",
     role: "Material / Shader / Technical Art",
     tools: "UNREAL ENGINE 5 · SUBSTANCE 3D · HLSL",
+    toolLogos: [
+      { name: "Substance 3D", src: "./assets/tools/substance-3d.png" },
+      { name: "Unreal Engine", src: "./assets/tools/unreal-engine.png" }
+    ],
     description: "리얼타임 렌더링을 위한 머티리얼과 셰이더를 제작하고 아트와 기술 사이의 룩을 정리했습니다.",
     video: "https://media.w3.org/2010/05/bunny/trailer.mp4",
     poster: ""
@@ -33,6 +41,10 @@ export const projects = [
     year: "2023",
     role: "Procedural Modeling / Pipeline Tools",
     tools: "HOUDINI · PYTHON · UNREAL ENGINE 5",
+    toolLogos: [
+      { name: "Houdini", src: "./assets/tools/houdini.png" },
+      { name: "Unreal Engine", src: "./assets/tools/unreal-engine.png" }
+    ],
     description: "반복 가능한 프로시저럴 에셋 워크플로를 구축하고 팀의 제작 과정을 위한 툴을 개발했습니다.",
     video: "https://media.w3.org/2010/05/sintel/trailer.mp4",
     poster: ""

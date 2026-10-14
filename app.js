@@ -1,4 +1,4 @@
-import { projects } from "./projects.js?v=disciplines-20261014";
+import { projects } from "./projects.js?v=year-logos-20261014";
 
 const disciplines = ["cinematic", "technical"];
 const projectList = document.querySelector("#project-list");
@@ -29,6 +29,7 @@ function updateCounts() {
 function cardMarkup(project, index) {
   const titleText = project.title.replaceAll("\n", " ");
   const number = String(index + 1).padStart(2, "0");
+  const toolLogos = (project.toolLogos ?? []).map(({ name, src }) => `<img src="${src}" alt="${name}" title="${name}" loading="lazy" />`).join("");
   return `
     <article class="project" data-index="${index}" id="project-${index + 1}" aria-label="${titleText}">
       <video class="project-video" muted playsinline preload="metadata"${project.poster ? ` poster="${project.poster}"` : ""}>
@@ -36,10 +37,10 @@ function cardMarkup(project, index) {
       </video>
       <div class="video-shade"></div>
       <div class="project-meta">
-        <div class="project-heading"><p class="eyebrow">${project.category}<span class="meta-sep">/</span>${project.year}</p><h2>${project.title.replaceAll("\n", "<br />")}</h2></div>
+        <div class="project-heading"><div class="project-year-row"><span class="project-year">${project.year}</span><span class="year-rule"></span><p class="eyebrow">${project.category}</p></div><h2>${project.title.replaceAll("\n", "<br />")}</h2></div>
         <div class="project-details">
           <div><span class="detail-label">MY ROLE</span><p>${project.role}</p></div>
-          <div><span class="detail-label">TOOLS</span><p>${project.tools}</p></div>
+          <div><span class="detail-label">TOOLS</span><div class="tool-content"><p>${project.tools}</p>${toolLogos ? `<div class="tool-logos" aria-label="${project.toolLogos.map(({ name }) => name).join(", ")}">${toolLogos}</div>` : ""}</div></div>
           <div class="detail-description"><span class="detail-label">ABOUT</span><p>${project.description}</p></div>
         </div>
       </div>
@@ -83,7 +84,9 @@ function moveTo(index) {
 function selectDiscipline(discipline, shouldScroll = true) {
   if (!disciplines.includes(discipline)) return;
   selectedDiscipline = discipline;
-  selectedProjects = projects.filter((project) => project.discipline === discipline);
+  selectedProjects = projects
+    .filter((project) => project.discipline === discipline)
+    .sort((a, b) => Number(b.year) - Number(a.year));
   if (observer) observer.disconnect();
 
   projectList.innerHTML = selectedProjects.map(cardMarkup).join("");
