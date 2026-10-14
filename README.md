@@ -1,6 +1,6 @@
 # TA Portfolio Reel
 
-A buildless HTML/CSS/JavaScript portfolio. Each project occupies one viewport; playback starts automatically and advances when the clip ends. The **PLAY** button starts or resumes playback with automatic advancing, **PAUSE** pauses and stops advancing, and **STOP** resets the current clip and stops advancing. Visitors can enable sound separately.
+A buildless HTML/CSS/JavaScript portfolio. Each project occupies one viewport; playback starts automatically and advances when the clip ends. The **PLAY** button starts or resumes playback with automatic advancing, **PAUSE** pauses and stops advancing, and **STOP** resets the current clip and stops advancing. The up/down buttons move between projects. Visitors can enable sound separately.
 
 ## Add your work
 

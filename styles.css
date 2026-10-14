@@ -111,7 +111,11 @@
 .release-link{position:absolute;right:12vw;bottom:51px;display:inline-flex;align-items:center;gap:9px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.34);color:rgba(255,255,255,.82);font:9px "DM Mono",monospace;letter-spacing:.13em;transition:color .2s,border-color .2s}
 .release-link span{color:var(--accent);font-size:14px}
 .release-link:hover{color:#fff;border-color:var(--accent)}
-@media(max-width:700px){.playback-controls{right:8vw;bottom:19px;gap:6px}.playback-button{width:34px;height:34px}.release-link{right:8vw;bottom:83px;font-size:8px}.project-heading h2{font-size:clamp(44px,10.8vw,72px)}}
+@media(max-width:700px){.playback-controls{right:8vw;bottom:19px;gap:6px}.playback-button{width:34px;height:34px}.release-link{right:8vw;bottom:120px;font-size:8px}.project-caption{bottom:120px}.project-counter{bottom:70px}.project-heading h2{font-size:clamp(44px,10.8vw,72px)}}
 .project-heading h2{font-size:clamp(44px,6vw,86px)}
 @media(max-width:700px){.project-heading h2{font-size:clamp(42px,10.5vw,72px)}}
+.project-caption{bottom:100px}
+.release-link{bottom:100px}
+@media(max-width:700px){.project-caption{bottom:120px}.release-link{bottom:120px}.project-counter{bottom:70px}}
+@media(max-width:700px){.project-caption{bottom:116px}.release-link{bottom:166px}}
 

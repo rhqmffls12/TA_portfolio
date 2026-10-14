@@ -12,6 +12,8 @@ const soundButton = document.querySelector(".sound-toggle");
 const playButton = document.querySelector(".play-button");
 const stopButton = document.querySelector(".stop-button");
 const pauseButton = document.querySelector(".pause-button");
+const previousButton = document.querySelector(".previous");
+const nextButton = document.querySelector(".next");
 let selectedDiscipline = null;
 let selectedProjects = [];
 let cards = [];
@@ -154,6 +156,8 @@ soundButton.addEventListener("click", () => {
   soundButton.setAttribute("aria-pressed", String(soundOn));
   soundButton.querySelector(".sound-label").textContent = soundOn ? "SOUND ON" : "SOUND OFF";
 });
+previousButton.addEventListener("click", () => moveTo(activeIndex - 1));
+nextButton.addEventListener("click", () => moveTo(activeIndex + 1));
 playButton.addEventListener("click", () => {
   playbackMode = "play";
   updatePlaybackButtons();
