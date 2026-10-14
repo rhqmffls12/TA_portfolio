@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0b0c0d" />
-    <meta name="description" content="Technical Artist — cinematic worlds, tools, and realtime craft." />
+    <meta name="description" content="Technical Artist portfolio: Cinematic Art & Production and Technical Direction." />
     <title>TA — Selected Work</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=gradient2-20261014" />
-    <script type="module" src="./app.js"></script>
+    <link rel="stylesheet" href="./styles.css?v=disciplines-20261014" />
+    <script type="module" src="./app.js?v=disciplines-20261014"></script>
   </head>
   <body>
     <header class="topbar">
@@ -20,20 +20,39 @@
     </header>
 
     <main id="top">
-      <section class="intro" aria-label="포트폴리오 소개">
-        <p class="eyebrow"><span>SELECTED WORK</span><span>2021 — 2025</span></p>
+      <section class="intro" aria-label="포트폴리오 분야 선택">
+        <p class="eyebrow"><span>TECHNICAL ARTIST / SELECTED WORK</span><span>2021 — 2025</span></p>
         <h1>Worlds made<br /><em>to be felt.</em></h1>
-        <p class="intro-note">실시간 그래픽과 시네마틱의 경계에서,<br />기술로 장면의 감정을 만듭니다.</p>
-        <a class="explore" href="#work"><span class="explore-line"></span> SCROLL TO EXPLORE <span>↓</span></a>
-        <div class="intro-index">01 <span>/</span> 04</div>
+        <p class="intro-note">시네마틱 아트와 제작, 기술 방향과 도구 개발.<br />두 가지 관점에서 작업을 살펴보세요.</p>
+        <div class="discipline-prompt"><span class="explore-line"></span> CHOOSE A DISCIPLINE <span>01 / 02</span></div>
+        <div class="discipline-grid" aria-label="포트폴리오 분야">
+          <button class="discipline-option" type="button" data-select-discipline="cinematic" aria-pressed="false">
+            <span class="discipline-index">01 / 02</span>
+            <span class="discipline-title">Cinematic Art<br />&amp; Production</span>
+            <span class="discipline-tags">ENVIRONMENT · MATERIAL · RIG · RENDER</span>
+            <span class="discipline-count" data-discipline-count="cinematic">02 PROJECTS</span>
+            <span class="discipline-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="discipline-option" type="button" data-select-discipline="technical" aria-pressed="false">
+            <span class="discipline-index">02 / 02</span>
+            <span class="discipline-title">Technical<br />Direction</span>
+            <span class="discipline-tags">PROCEDURAL · TOOLS · PIPELINE · AUTOMATION</span>
+            <span class="discipline-count" data-discipline-count="technical">01 PROJECT</span>
+            <span class="discipline-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
       </section>
 
       <section class="reel" id="work" aria-label="선택한 프로젝트">
         <div class="reel-progress" aria-hidden="true"><span class="progress-fill"></span></div>
+        <nav class="discipline-switcher" aria-label="포트폴리오 분야 전환" hidden>
+          <button class="discipline-tab" type="button" data-select-discipline="cinematic" aria-pressed="false">CINEMATIC ART &amp; PRODUCTION</button>
+          <button class="discipline-tab" type="button" data-select-discipline="technical" aria-pressed="false">TECHNICAL DIRECTION</button>
+        </nav>
         <div class="project-list" id="project-list"></div>
-        <div class="reel-controls">
+        <div class="reel-controls" hidden>
           <button class="sound-toggle" type="button" aria-pressed="false"><span class="sound-icon">◖</span><span class="sound-label">SOUND OFF</span></button>
-          <div class="project-counter"><span class="counter-current">01</span><span class="counter-slash">/</span><span class="counter-total">03</span></div>
+          <div class="project-counter"><span class="counter-current">01</span><span class="counter-slash">/</span><span class="counter-total">00</span></div>
           <div class="reel-arrows"><button class="arrow-button previous" type="button" aria-label="이전 작품">↑</button><button class="arrow-button next" type="button" aria-label="다음 작품">↓</button></div>
         </div>
       </section>

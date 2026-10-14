@@ -3,6 +3,7 @@
 export const projects = [
   {
     number: "01",
+    discipline: "cinematic",
     title: "THE LAST\nSANCTUARY",
     category: "CINEMATIC · ENVIRONMENT",
     year: "2025",
@@ -14,6 +15,7 @@ export const projects = [
   },
   {
     number: "02",
+    discipline: "cinematic",
     title: "BETWEEN\nTWO WORLDS",
     category: "REALTIME · LOOK DEVELOPMENT",
     year: "2024",
@@ -25,6 +27,7 @@ export const projects = [
   },
   {
     number: "03",
+    discipline: "technical",
     title: "KINETIC\nFORM",
     category: "PROCEDURAL · TOOL DEVELOPMENT",
     year: "2023",
@@ -35,4 +38,3 @@ export const projects = [
     poster: ""
   }
 ];
-

@@ -24,3 +24,7 @@ The first project uses `media/dednet.mp4` as a GitHub-hosted test clip. Replace 
 ## Video overlay
 
 Project video color is kept close to the source. The `.video-shade` overlay in `styles.css` uses a diagonal dark gradient that is masked to fade completely to transparent at exactly two-thirds of the frame, leaving the rightmost third untouched. Text remains legible because the strongest shade stays behind the left-side copy. The mobile breakpoint uses a similar gradient.
+
+## Portfolio disciplines
+
+Each entry in `projects.js` has a `discipline` field: `cinematic` for Cinematic Art & Production, or `technical` for Technical Direction. The opening selector and the tabs above the reel filter projects by this field. Set the field when adding a project so it appears in the intended portfolio.
