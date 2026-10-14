@@ -33,5 +33,22 @@ export const projects = [
     video: "./media/subzero.mp4",
     releaseUrl: "https://www.youtube.com/watch?v=eFRcy0Bcqtc",
     poster: ""
+  },
+  {
+    number: "03",
+    discipline: "cinematic",
+    title: "PUBG : Blendspot\nGamescom 2025\nCinematic",
+    category: "CINEMATIC · GAMESCOM 2025",
+    year: "2025",
+    role: "Environment Art · Rendering · FX · Technical Art",
+    tools: "UNREAL ENGINE 5 · HOUDINI",
+    toolLogos: [
+      { name: "Unreal Engine 5", src: "./assets/tools/unreal-engine.png" },
+      { name: "Houdini", src: "./assets/tools/houdini.png" }
+    ],
+    description: "시네마틱의 샷 구성에 맞춰 환경을 디벨롭하고, 주변 풍경을 반사하는 방독면 고글 머티리얼을 제작했습니다. 문 파괴 연출과 샷별 연기 세팅으로 액션의 흐름과 공간감을 보강했습니다.",
+    video: "./media/blendspot.mp4",
+    releaseUrl: "https://www.youtube.com/watch?v=m1Gi5ABxO4I",
+    poster: ""
   }
 ];

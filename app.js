@@ -1,4 +1,4 @@
-import { projects } from "./projects.js?v=nav-painter-20261014";
+import { projects } from "./projects.js?v=blendspot-20261014";
 
 const disciplines = ["cinematic", "technical"];
 const projectList = document.querySelector("#project-list");
