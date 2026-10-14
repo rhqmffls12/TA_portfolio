@@ -10,7 +10,8 @@ export const projects = [
     role: "Environment Art · Rendering · FX · Technical Art",
     tools: "UNREAL ENGINE 5 · SUBSTANCE PAINTER",
     toolLogos: [
-      { name: "Unreal Engine 5", src: "./assets/tools/unreal-engine.png" }
+      { name: "Unreal Engine 5", src: "./assets/tools/unreal-engine.png" },
+      { name: "Substance Painter", src: "./assets/tools/substance-painter.png" }
     ],
     description: "시네마틱 연출과 샷 흐름에 맞춰 환경을 디벨롭하고, 블러드 FX가 장면 안에서 선명하게 읽히도록 관련 모델링과 표현을 다듬었습니다. 환경 제작부터 FX와 렌더링까지 연결해 컷의 완성도를 높였습니다.",
     video: "./media/dednet.mp4",

@@ -1,4 +1,4 @@
-import { projects } from "./projects.js?v=transport-controls-20261014";
+import { projects } from "./projects.js?v=nav-painter-20261014";
 
 const disciplines = ["cinematic", "technical"];
 const projectList = document.querySelector("#project-list");
@@ -90,7 +90,8 @@ function updatePlaybackButtons() {
 }
 
 function moveTo(index) {
-  if (scrollLock || !cards.length) return;
+  if (!cards.length) return;
+  if (scrollLock) return;
   if (index >= cards.length) {
     document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
     return;
@@ -100,8 +101,14 @@ function moveTo(index) {
     return;
   }
   scrollLock = true;
-  cards[index].scrollIntoView({ behavior: "smooth", block: "start" });
-  window.setTimeout(() => { scrollLock = false; }, 850);
+  const top = cards[index].getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top, behavior: "smooth" });
+  const unlock = () => {
+    scrollLock = false;
+    window.removeEventListener("scrollend", unlock);
+  };
+  window.addEventListener("scrollend", unlock, { once: true });
+  window.setTimeout(unlock, 1200);
 }
 
 function selectDiscipline(discipline, shouldScroll = true) {
