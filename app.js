@@ -1,4 +1,4 @@
-import { projects } from "./projects.js?v=year-logos-20261014";
+import { projects } from "./projects.js?v=autoplay-release-memos-20261014";
 
 const disciplines = ["cinematic", "technical"];
 const projectList = document.querySelector("#project-list");
@@ -9,12 +9,14 @@ const currentLabel = document.querySelector(".counter-current");
 const totalLabel = document.querySelector(".counter-total");
 const currentProgress = document.querySelector(".progress-fill");
 const soundButton = document.querySelector(".sound-toggle");
+const autoButton = document.querySelector(".auto-toggle");
 let selectedDiscipline = null;
 let selectedProjects = [];
 let cards = [];
 let videos = [];
 let activeIndex = 0;
 let soundOn = false;
+let autoPlay = true;
 let scrollLock = false;
 let observer = null;
 
@@ -35,6 +37,7 @@ function cardMarkup(project, index) {
       <video class="project-video" muted playsinline preload="metadata"${project.poster ? ` poster="${project.poster}"` : ""}>
         <source src="${project.video}" type="video/mp4" />
       </video>
+      <button class="manual-play" type="button" aria-label="Play project video" title="Play video">▶</button>
       <div class="video-shade"></div>
       <div class="project-meta">
         <div class="project-heading"><div class="project-year-row"><span class="project-year">${project.year}</span><span class="year-rule"></span><p class="eyebrow">${project.category}</p></div><h2>${project.title.replaceAll("\n", "<br />")}</h2></div>
@@ -46,6 +49,7 @@ function cardMarkup(project, index) {
       </div>
       <div class="project-side"><span>JH — PORTFOLIO</span><span>${number} / ${String(selectedProjects.length).padStart(2, "0")}</span></div>
       <div class="project-caption"><span class="caption-number">${number}</span><span class="caption-rule"></span><span>${project.category}</span></div>
+      ${project.releaseUrl ? `<a class="release-link" href="${project.releaseUrl}" target="_blank" rel="noopener noreferrer">WATCH RELEASE <span aria-hidden="true">↗</span></a>` : ""}
     </article>`;
 }
 
@@ -60,10 +64,26 @@ function setActive(index) {
       video.pause();
       return;
     }
-    video.muted = !soundOn;
-    const playback = video.play();
-    if (playback) playback.catch(() => cards[i].classList.add("video-error"));
+    if (!autoPlay) {
+      video.pause();
+      return;
+    }
+    startVideo(i);
   });
+}
+
+function startVideo(index) {
+  const video = videos[index];
+  if (!video) return;
+  video.muted = !soundOn;
+  const playback = video.play();
+  if (playback) playback.catch(() => cards[index].classList.add("video-error"));
+}
+
+function updateAutoButton() {
+  autoButton.setAttribute("aria-pressed", String(autoPlay));
+  autoButton.setAttribute("aria-label", autoPlay ? "Turn off automatic playback and next-project scrolling" : "Turn on automatic playback and next-project scrolling");
+  autoButton.querySelector(".auto-label").textContent = `AUTO PLAY + NEXT · ${autoPlay ? "ON" : "OFF"}`;
 }
 
 function moveTo(index) {
@@ -113,8 +133,17 @@ function selectDiscipline(discipline, shouldScroll = true) {
   cards.forEach((card) => observer.observe(card));
 
   videos.forEach((video, index) => video.addEventListener("ended", () => {
-    if (index === activeIndex) moveTo(index + 1);
+    if (autoPlay && index === activeIndex) moveTo(index + 1);
   }));
+  videos.forEach((video, index) => {
+    video.addEventListener("playing", () => cards[index].classList.add("video-playing"));
+    video.addEventListener("pause", () => cards[index].classList.remove("video-playing"));
+    cards[index].querySelector(".manual-play").addEventListener("click", () => {
+      if (index !== activeIndex) setActive(index);
+      startVideo(index);
+    });
+    cards[index].classList.toggle("manual-mode", !autoPlay);
+  });
 
   if (shouldScroll && cards[0]) {
     window.requestAnimationFrame(() => cards[0].scrollIntoView({ behavior: "smooth", block: "start" }));
@@ -133,6 +162,14 @@ soundButton.addEventListener("click", () => {
   soundButton.setAttribute("aria-pressed", String(soundOn));
   soundButton.querySelector(".sound-label").textContent = soundOn ? "SOUND ON" : "SOUND OFF";
 });
+autoButton.addEventListener("click", () => {
+  autoPlay = !autoPlay;
+  updateAutoButton();
+  cards.forEach((card) => card.classList.toggle("manual-mode", !autoPlay));
+  if (autoPlay) setActive(activeIndex);
+  else videos[activeIndex]?.pause();
+});
+updateAutoButton();
 document.addEventListener("keydown", (event) => {
   if (!cards.length) return;
   if (event.key === "ArrowDown" || event.key === "PageDown") { event.preventDefault(); moveTo(activeIndex + 1); }
