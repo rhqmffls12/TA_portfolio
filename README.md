@@ -23,4 +23,4 @@ The first project uses `media/dednet.mp4` as a GitHub-hosted test clip. Replace 
 
 ## Video overlay
 
-Project video color is kept close to the source. The `.video-shade` overlay in `styles.css` uses a diagonal dark gradient that fades to clear at roughly two-thirds of the frame, with a light vertical shade to preserve text legibility. The mobile breakpoint uses a similar gradient.
+Project video color is kept close to the source. The `.video-shade` overlay in `styles.css` uses a diagonal dark gradient that is masked to fade completely to transparent at exactly two-thirds of the frame, leaving the rightmost third untouched. Text remains legible because the strongest shade stays behind the left-side copy. The mobile breakpoint uses a similar gradient.
