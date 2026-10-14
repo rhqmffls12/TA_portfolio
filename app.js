@@ -65,6 +65,7 @@ function setActive(index) {
   videos.forEach((video, i) => {
     if (i !== index) {
       video.pause();
+      if (video.readyState > 0) video.currentTime = 0;
       return;
     }
     if (playbackMode !== "play") {
