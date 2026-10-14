@@ -85,3 +85,8 @@
   .discipline-action{max-width:100%;padding-top:8px;margin-top:2px;font-size:8px}
 }
 @media(hover:none){.discipline-option::before{opacity:.34}.discipline-option::after{opacity:.9}}
+
+/* Cleaner, more understated portfolio headings */
+.intro h1,.outro h2,.project-heading h2,.discipline-title{font-family:'Manrope',sans-serif;font-weight:500;letter-spacing:-.045em}
+.intro h1 em,.outro h2 em{font-style:normal}
+
