@@ -9,7 +9,7 @@ export const projects = [
     role: "Environment Art / Lighting / Compositing",
     tools: "UNREAL ENGINE 5 · HOUDINI · NUKE",
     description: "잊혀진 세계의 마지막 빛을 설계한 시네마틱 환경 작업입니다. 안개와 라이팅, 룩디벨롭을 담당했습니다.",
-    video: "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    video: "./media/dednet.mp4",
     poster: ""
   },
   {
@@ -35,3 +35,4 @@ export const projects = [
     poster: ""
   }
 ];
+

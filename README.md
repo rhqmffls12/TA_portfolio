@@ -16,3 +16,7 @@ The included video URLs are public sample clips for preview only and are labeled
 Open `index.html` from a local static server (for example, `npx serve .`). To publish this repository, open **Settings → Pages** on GitHub, select **Deploy from a branch**, choose `main` and `/(root)`, then save. The project site URL is `https://rhqmffls12.github.io/TA_portfolio/`.
 
 For a small demo, optimized MP4 files can live in `media/` and use relative paths such as `./media/my-reel.mp4`. GitHub blocks individual regular Git files larger than 100 MiB, and GitHub Pages has a 1 GB published-site limit and a 100 GB/month soft bandwidth limit. Keep the repository small; move larger or popular videos to object storage or a video CDN. See the [GitHub Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
+
+## Test video
+
+The first project uses `media/dednet.mp4` as a GitHub-hosted test clip. Replace this file or change the `video` path in `projects.js` when adding the final reel. Keep individual files below GitHub's 100 MiB limit; this test clip is about 10 MB.
