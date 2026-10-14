@@ -20,3 +20,7 @@ For a small demo, optimized MP4 files can live in `media/` and use relative path
 ## Test video
 
 The first project uses `media/dednet.mp4` as a GitHub-hosted test clip. Replace this file or change the `video` path in `projects.js` when adding the final reel. Keep individual files below GitHub's 100 MiB limit; this test clip is about 10 MB.
+
+## Video overlay
+
+Project video color is kept close to the source. The `.video-shade` overlay in `styles.css` uses a diagonal dark gradient that fades to clear at roughly two-thirds of the frame, with a light vertical shade to preserve text legibility. The mobile breakpoint uses a similar gradient.
