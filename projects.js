@@ -50,5 +50,22 @@ export const projects = [
     video: "./media/blendspot.mp4",
     releaseUrl: "https://www.youtube.com/watch?v=m1Gi5ABxO4I",
     poster: ""
+  },
+  {
+    number: "04",
+    discipline: "cinematic",
+    title: "DinkumTogether\nCinematic",
+    category: "CINEMATIC · CHARACTER & WORLD",
+    year: "2024",
+    role: "Environment Art · Rigging · Render Layers · Compositing · Technical Art",
+    tools: "MAYA · HOUDINI · DAVINCI RESOLVE",
+    toolLogos: [
+      { name: "Maya", src: "./assets/tools/maya.png" },
+      { name: "Houdini", src: "./assets/tools/houdini.png" }
+    ],
+    description: "후디니 프로시저럴 워크플로로 월드와 환경을 구축하고, 자체 제작한 페이셜 리그 툴로 메인 캐릭터의 얼굴 리깅을 진행했습니다. Redshift 오프라인 렌더 파이프라인의 Render Layer와 AOV를 구성하고, 컴포지팅 셋업까지 연결했습니다.",
+    video: "./media/dinkum-together.mp4",
+    releaseUrl: "https://www.youtube.com/watch?v=h7cVuFXVYVI",
+    poster: ""
   }
 ];
