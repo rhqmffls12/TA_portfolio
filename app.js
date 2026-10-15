@@ -117,7 +117,7 @@ function selectDiscipline(discipline, shouldScroll = true) {
   selectedDiscipline = discipline;
   selectedProjects = projects
     .filter((project) => project.discipline === discipline)
-    .sort((a, b) => Number(b.year.match(/\d{4}/g)?.at(-1) || b.year) - Number(a.year.match(/\d{4}/g)?.at(-1) || a.year));
+    .sort((a, b) => Number(b.year.match(/\d{4}/)?.[0] || b.year) - Number(a.year.match(/\d{4}/)?.[0] || a.year));
   if (observer) observer.disconnect();
 
   projectList.innerHTML = selectedProjects.map(cardMarkup).join("");
