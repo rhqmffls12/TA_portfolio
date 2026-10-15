@@ -19,7 +19,7 @@ For a small demo, optimized MP4 files can live in `media/` and use relative path
 
 ## Local project reels
 
-The Dednet trailer uses `media/dednet.mp4`, Erangel Subzero uses `media/subzero.mp4`, Blendspot uses `media/blendspot.mp4`, DinkumTogether uses `media/dinkum-together.mp4`, Abyss of Dungeons uses `media/abyss-of-dungeons.mp4`, and BattleGround Intro&Collabo uses `media/battleground-intro-collabo.mp4`. Update the `video` path in `projects.js` when replacing a reel. Keep individual files below GitHub's 100 MiB limit.
+The Dednet trailer uses `media/dednet.mp4`, Erangel Subzero uses `media/subzero.mp4`, Blendspot uses `media/blendspot.mp4`, DinkumTogether uses `media/dinkum-together.mp4`, Abyss of Dungeons uses `media/abyss-of-dungeons.mp4`, BattleGround Intro&Collabo uses `media/battleground-intro-collabo.mp4`, and VirtualHuman ANA uses `media/virtual-human-ana.mp4`. Update the `video` path in `projects.js` when replacing a reel. Keep individual files below GitHub's 100 MiB limit.
 
 ## Video overlay
 

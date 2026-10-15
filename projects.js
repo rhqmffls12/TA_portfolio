@@ -106,5 +106,24 @@ export const projects = [
     description: "배틀그라운드 인트로와 콜라보 시네마틱의 효율적인 제작을 위한 파이프라인을 구축했습니다. 비주얼라이징을 위한 텍스처링과 셰이딩을 비롯해 환경, 리깅, CFX, FX 등 다양한 제작에 참여했습니다.",
     video: "./media/battleground-intro-collabo.mp4",
     poster: ""
+  },
+  {
+    number: "07",
+    discipline: "cinematic",
+    title: "VirtualHuman ANA",
+    category: "VIRTUAL HUMAN · TECHNICAL ART",
+    year: "2022–2023",
+    sortAfter: "BattleGround Intro&Collabo\nShowreel",
+    role: "Technical Art · Rigging · CFX",
+    tools: "UNREAL ENGINE 5 · MAYA · MARVELOUS DESIGNER",
+    toolLogos: [
+      { name: "Unreal Engine 5", src: "./assets/tools/unreal-engine.png" },
+      { name: "Maya", src: "./assets/tools/maya.png" },
+      { name: "Marvelous Designer", src: "./assets/tools/marvelous-designer.png" }
+    ],
+    description: "버추얼 휴먼 ANA의 뮤직비디오와 라이브 모션 제작 파이프라인을 구축하고, 비주얼 프로덕션을 위한 리깅과 CFX 작업을 진행했습니다.",
+    video: "./media/virtual-human-ana.mp4",
+    releaseUrl: "https://www.youtube.com/@theofficialana/videos",
+    poster: ""
   }
 ];

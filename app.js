@@ -1,4 +1,4 @@
-import { projects } from "./projects.js?v=battleground-20261015";
+import { projects } from "./projects.js?v=virtual-human-ana-20261015";
 
 const disciplines = ["cinematic", "technical"];
 const projectList = document.querySelector("#project-list");
@@ -117,7 +117,11 @@ function selectDiscipline(discipline, shouldScroll = true) {
   selectedDiscipline = discipline;
   selectedProjects = projects
     .filter((project) => project.discipline === discipline)
-    .sort((a, b) => Number(b.year.match(/\d{4}/)?.[0] || b.year) - Number(a.year.match(/\d{4}/)?.[0] || a.year));
+    .sort((a, b) => {
+      if (a.sortAfter === b.title) return 1;
+      if (b.sortAfter === a.title) return -1;
+      return Number(b.year.match(/\d{4}/)?.[0] || b.year) - Number(a.year.match(/\d{4}/)?.[0] || a.year);
+    });
   if (observer) observer.disconnect();
 
   projectList.innerHTML = selectedProjects.map(cardMarkup).join("");
