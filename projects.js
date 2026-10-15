@@ -70,5 +70,23 @@ export const projects = [
     video: "./media/dinkum-together.mp4",
     releaseUrl: "https://www.youtube.com/watch?v=h7cVuFXVYVI",
     poster: ""
+  },
+  {
+    number: "05",
+    discipline: "cinematic",
+    title: "Abyss of Dungeons\nCinematic",
+    category: "CINEMATIC · CHARACTER & CFX",
+    year: "2024",
+    role: "Environment Art · Rigging · Rendering · Technical Art · CFX",
+    tools: "UNREAL ENGINE 5 · MAYA · HOUDINI",
+    toolLogos: [
+      { name: "Unreal Engine 5", src: "./assets/tools/unreal-engine.png" },
+      { name: "Maya", src: "./assets/tools/maya.png" },
+      { name: "Houdini", src: "./assets/tools/houdini.png" }
+    ],
+    description: "시네마틱 연출에 맞춰 환경과 캐릭터 머티리얼을 제작하고 캐릭터 리깅을 진행했습니다. Houdini 프로시저럴 워크플로로 CFX 파이프라인을 구성해 작업 효율을 높이고 CFX 제작을 지원했습니다.",
+    video: "./media/abyss-of-dungeons.mp4",
+    releaseUrl: "https://www.youtube.com/watch?v=PM8jNKwIUnA",
+    poster: ""
   }
 ];

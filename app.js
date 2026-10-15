@@ -1,4 +1,4 @@
-import { projects } from "./projects.js?v=maya-projects-1-3-20261014";
+import { projects } from "./projects.js?v=abyss-20261015";
 
 const disciplines = ["cinematic", "technical"];
 const projectList = document.querySelector("#project-list");
