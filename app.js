@@ -1,4 +1,4 @@
-import { projects } from "./projects.js?v=abyss-20261015";
+import { projects } from "./projects.js?v=battleground-20261015";
 
 const disciplines = ["cinematic", "technical"];
 const projectList = document.querySelector("#project-list");
@@ -117,7 +117,7 @@ function selectDiscipline(discipline, shouldScroll = true) {
   selectedDiscipline = discipline;
   selectedProjects = projects
     .filter((project) => project.discipline === discipline)
-    .sort((a, b) => Number(b.year) - Number(a.year));
+    .sort((a, b) => Number(b.year.match(/\d{4}/g)?.at(-1) || b.year) - Number(a.year.match(/\d{4}/g)?.at(-1) || a.year));
   if (observer) observer.disconnect();
 
   projectList.innerHTML = selectedProjects.map(cardMarkup).join("");

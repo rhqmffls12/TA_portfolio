@@ -88,5 +88,23 @@ export const projects = [
     video: "./media/abyss-of-dungeons.mp4",
     releaseUrl: "https://www.youtube.com/watch?v=PM8jNKwIUnA",
     poster: ""
+  },
+  {
+    number: "06",
+    discipline: "cinematic",
+    title: "BattleGround Intro&Collabo\nShowreel",
+    category: "CINEMATIC · PRODUCTION PIPELINE",
+    year: "2021–2025",
+    role: "Technical Art · Rigging · Environment Art · CFX · Rendering",
+    tools: "UNREAL ENGINE 4 & 5 · MAYA · HOUDINI · MARVELOUS DESIGNER",
+    toolLogos: [
+      { name: "Unreal Engine", src: "./assets/tools/unreal-engine.png" },
+      { name: "Maya", src: "./assets/tools/maya.png" },
+      { name: "Houdini", src: "./assets/tools/houdini.png" },
+      { name: "Marvelous Designer", src: "./assets/tools/marvelous-designer.png" }
+    ],
+    description: "배틀그라운드 인트로와 콜라보 시네마틱의 효율적인 제작을 위한 파이프라인을 구축했습니다. 비주얼라이징을 위한 텍스처링과 셰이딩을 비롯해 환경, 리깅, CFX, FX 등 다양한 제작에 참여했습니다.",
+    video: "./media/battleground-intro-collabo.mp4",
+    poster: ""
   }
 ];
